@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>InfraHeal Technologies, Inc.</title>
+  <meta name="description" content="InfraHeal Technologies develops stress-selective, self-healing composite materials for resilient U.S. infrastructure." />
+
+  <style>
+    :root{
+      --bg:#0f172a;
+      --panel:#020617;
+      --text:#e5e7eb;
+      --muted:#94a3b8;
+      --link:#38bdf8;
+      --soft:#cbd5f5;
+      --chip:#1e293b;
+      --max:1100px;
+    }
+    *{ box-sizing:border-box; }
+    body{
+      font-family: Arial, Helvetica, sans-serif;
+      margin:0;
+      background:var(--bg);
+      color:var(--text);
+      line-height:1.6;
+    }
+    header{
+      background: linear-gradient(135deg, #020617, #0f172a);
+      padding:60px 20px 40px;
+      text-align:center;
+    }
+    header h1{ font-size:2.6rem; margin:0 0 10px; }
+    header p{ font-size:1.15rem; margin:0; color:var(--soft); }
+
+    nav{
+      background:var(--panel);
+      padding:10px 20px;
+      position:sticky;
+      top:0;
+      z-index:10;
+      border-bottom:1px solid rgba(148,163,184,0.15);
+    }
+    .navwrap{ max-width:var(--max); margin:0 auto; display:flex; flex-wrap:wrap; gap:14px; }
+    nav a{
+      color:var(--soft);
+      text-decoration:none;
+      font-weight:700;
+      letter-spacing:0.2px;
+      font-size:0.95rem;
+    }
+    nav a:hover{ color:var(--link); }
+
+    section{ padding:56px 20px; }
+    .wrap{ max-width:var(--max); margin:0 auto; }
+    h2{ color:var(--link); margin:0 0 14px; font-size:1.7rem; }
+    .card{
+      background:var(--panel);
+      padding:24px;
+      border-radius:14px;
+      margin:0 0 22px;
+      border:1px solid rgba(148,163,184,0.12);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.18);
+    }
+    ul{ margin:10px 0 0 18px; }
+    .tag{
+      display:inline-block;
+      background:var(--chip);
+      padding:6px 12px;
+      border-radius:999px;
+      margin:6px 8px 0 0;
+      font-size:0.88rem;
+      color:var(--text);
+      border:1px solid rgba(148,163,184,0.12);
+    }
+
+    /* hero images */
+    .hero-images{
+      margin-top:26px;
+      display:flex;
+      justify-content:center;
+      gap:20px;
+      flex-wrap:wrap;
+    }
+    figure{
+      margin:0;
+      max-width:300px;
+      width:100%;
+      text-align:left;
+    }
+    figure img{
+      width:100%;
+      border-radius:12px;
+      border:1px solid rgba(148,163,184,0.12);
+      display:block;
+    }
+    figcaption{
+      font-size:0.85rem;
+      color:var(--muted);
+      margin-top:8px;
+      line-height:1.35;
+    }
+
+    /* optional image row inside sections */
+    .imgrow{
+      display:flex;
+      gap:16px;
+      flex-wrap:wrap;
+      margin-top:14px;
+    }
+    .imgbox{
+      flex:1 1 260px;
+      background:rgba(2,6,23,0.35);
+      border:1px dashed rgba(148,163,184,0.28);
+      border-radius:12px;
+      padding:12px;
+    }
+    .imgbox img{
+      width:100%;
+      border-radius:10px;
+      display:block;
+      border:1px solid rgba(148,163,184,0.12);
+    }
+    .imgbox .cap{
+      margin-top:8px;
+      font-size:0.85rem;
+      color:var(--muted);
+    }
+
+    a{ color:var(--link); }
+    footer{
+      background:var(--panel);
+      text-align:center;
+      padding:26px 20px;
+      color:var(--muted);
+      border-top:1px solid rgba(148,163,184,0.15);
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h1>InfraHeal Technologies, Inc.</h1>
+  <p>Decision-Responsive Materials for Resilient Infrastructure</p>
+
+  <!-- HERO IMAGES (your two photos) -->
+  <div class="hero-images">
+    <figure>
+      <img src="images/composite_sample.jpg" alt="Self-healing composite sample under inspection" />
+      <figcaption>Representative composite sample informing InfraHeal’s self-healing materials platform.</figcaption>
+    </figure>
+
+    <figure>
+      <img src="images/lab_testing.jpg" alt="Materials testing in laboratory environment" />
+      <figcaption>Experimental validation using advanced materials testing equipment.</figcaption>
+    </figure>
+  </div>
+</header>
+
+<nav>
+  <div class="navwrap">
+    <a href="#problem">Problem</a>
+    <a href="#solution">Solution</a>
+    <a href="#technology">Technology</a>
+    <a href="#research">Research</a>
+    <a href="#team">Team</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<section id="problem">
+  <div class="wrap">
+    <h2>The Problem</h2>
+    <div class="card">
+      <p>
+        U.S. bridges, buildings, and public infrastructure fail primarily due to
+        <strong>localized stress concentrations</strong> that initiate cracks long before visible damage occurs.
+        Inspection and repair methods are reactive, labor-intensive, and increasingly unsustainable under
+        climate-driven loading and workforce shortages.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section id="solution">
+  <div class="wrap">
+    <h2>Our Solution</h2>
+    <div class="card">
+      <p>
+        InfraHeal develops <strong>stress-selective, self-healing composite materials</strong> that autonomously respond
+        only where failure risk is highest. By embedding decision-making capability directly into materials,
+        we extend service life and reduce maintenance costs.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section id="technology">
+  <div class="wrap">
+    <h2>Core Technology</h2>
+    <div class="card">
+      <ul>
+        <li><strong>Shape Memory Polymer (SMP) matrices</strong> for controlled crack closure</li>
+        <li><strong>Fiber-reinforced composites</strong> for stress localization (strain/resistance response)</li>
+        <li><strong>Localized activation</strong> (thermal or magnetic) confined to critical regions</li>
+        <li><strong>Decision-support analytics</strong> using Python-based visualization</li>
+      </ul>
+
+      <div style="margin-top:10px;">
+        <span class="tag">Self-Healing</span>
+        <span class="tag">Stress-Selective</span>
+        <span class="tag">Infrastructure</span>
+        <span class="tag">Smart Materials</span>
+      </div>
+
+      <!-- OPTIONAL: add more images later by putting files in /images and referencing them here -->
+      <div class="imgrow">
+        <div class="imgbox">
+          <!-- Replace schematic_v1.png with your schematic filename when you add it -->
+          <img src="images/schematic_v1.png" alt="Platform schematic (optional)" />
+          <div class="cap">Optional: technology schematic (add your file to <code>/images</code>).</div>
+        </div>
+        <div class="imgbox">
+          <!-- Replace crack_before_after.png with your file when you add it -->
+          <img src="images/crack_before_after.png" alt="Crack before/after (optional)" />
+          <div class="cap">Optional: representative crack closure image (add your file to <code>/images</code>).</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="research">
+  <div class="wrap">
+    <h2>Research Foundation</h2>
+    <div class="card">
+      <p>
+        InfraHeal’s platform is grounded in experimentally validated research, including peer-reviewed publications
+        on self-healing composites, shape-memory polymers, and multifunctional material systems.
+      </p>
+      <ul>
+        <li>Self-Healing of Macroscopic Cracks in Concrete by Cellulose Fiber-Carried Microbes (2024)</li>
+        <li>Efficacy of Cellulose Fiber as Bacteria Carrier for Self-Healing Concrete</li>
+        <li>Development of Multifunctional Wood Composites with Integrated Phase Change Materials</li>
+        <li>Effect of Two-Way Shape Memory on Healing of Polymer Composites</li>
+      </ul>
+
+      <p style="margin-top:14px; color:var(--muted);">
+        These works inform the material design principles underlying InfraHeal’s stress-selective self-healing platform.
+        No intellectual property conflicts exist.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section id="team">
+  <div class="wrap">
+    <h2>Leadership & Expertise</h2>
+    <div class="card">
+      <p>
+        <strong>Emmanuel Igbokwe, M.Sc., M.Eng.</strong><br />
+        Founder & CEO | Principal Investigator
+      </p>
+      <p>
+        Materials and infrastructure engineer with expertise in self-healing composites, shape-memory polymers,
+        advanced materials characterization (DMA, DSC, TGA, SEM, MTS), and applied data analytics.
+      </p>
+
+      <p style="margin-top:18px;">
+        <strong>Machine Learning & Neural Systems (Advisory)</strong><br />
+        Applied to stress, strain, and damage evolution data for predictive maintenance and future adaptive material behavior.
+        Machine learning methods are applied at the <strong>decision-support layer</strong>, complementing the core materials innovation.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap">
+    <h2>Contact</h2>
+    <div class="card">
+      <p>Email: <a href="mailto:info@infrahealtech.com">info@infrahealtech.com</a></p>
+      <p style="color:var(--muted); margin-top:10px;">
+        InfraHeal Technologies is preparing for NSF SBIR Phase I submission.
+      </p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>&copy; 2026 InfraHeal Technologies, Inc. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
