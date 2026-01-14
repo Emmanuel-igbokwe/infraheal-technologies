@@ -155,6 +155,7 @@
       box-shadow: var(--shadow2);
       transition: transform .12s ease, background .12s ease, border-color .12s ease;
       user-select:none;
+      cursor:pointer;
     }
     .btn:hover{ transform: translateY(-1px); text-decoration:none; }
     .btn.primary{
@@ -308,6 +309,71 @@
       flex-wrap:wrap; align-items:center;
     }
 
+    /* Modal (Careers) */
+    .modal-overlay{
+      position:fixed; inset:0;
+      background: rgba(0,0,0,0.62);
+      display:none;
+      align-items:center;
+      justify-content:center;
+      padding: 18px;
+      z-index: 1000;
+    }
+    .modal{
+      width:min(860px, 100%);
+      border-radius: 22px;
+      background: linear-gradient(135deg, rgba(255,255,255,0.10), rgba(255,255,255,0.06));
+      border: 1px solid rgba(255,255,255,0.14);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+      position:relative;
+    }
+    .modal-head{
+      padding: 18px 18px 10px;
+      display:flex;
+      justify-content:space-between;
+      gap:12px;
+      align-items:flex-start;
+      border-bottom: 1px solid rgba(255,255,255,0.10);
+      background: rgba(0,0,0,0.12);
+    }
+    .modal-head h3{ margin:0; font-size: 1.18rem; letter-spacing:-0.2px; }
+    .modal-head p{ margin:6px 0 0; color: var(--muted); font-size:0.95rem; }
+    .close{
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.14);
+      color: var(--text);
+      border-radius: 12px;
+      padding: 8px 10px;
+      font-weight: 800;
+      cursor:pointer;
+    }
+    .close:hover{ background: rgba(255,255,255,0.12); }
+    .modal-body{ padding: 16px 18px 18px; }
+    .modal-grid{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+    .mini-card{
+      border-radius: 18px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.10);
+      padding: 14px;
+    }
+    .mini-card h4{ margin:0 0 8px; font-size: 1.02rem; }
+    .mini-card ul{ margin:8px 0 0 18px; color: var(--muted); }
+    .mini-card li{ margin: 6px 0; }
+    .hint{ color: var(--muted2); font-size:0.92rem; margin-top:10px; }
+
+    .apply-row{
+      display:flex;
+      flex-wrap:wrap;
+      gap: 12px;
+      margin-top: 14px;
+      align-items:center;
+    }
+
     /* Responsive */
     @media (max-width: 980px){
       .hero{ grid-template-columns: 1fr; }
@@ -315,6 +381,7 @@
       .stats{ grid-template-columns: 1fr 1fr; }
       .grid{ grid-template-columns: 1fr; }
       .split{ grid-template-columns: 1fr; }
+      .modal-grid{ grid-template-columns: 1fr; }
     }
     @media (max-width: 560px){
       h1{ font-size: 2.10rem; }
@@ -343,6 +410,7 @@
         <a href="#technology">Technology</a>
         <a href="#foundation">Foundation</a>
         <a href="#team">Team</a>
+        <a href="#careers">Careers</a>
         <a href="#contact">Contact</a>
       </nav>
     </div>
@@ -405,7 +473,7 @@
       <div class="grid">
         <div class="card">
           <h3>Why it matters</h3>
-          <p>Localized damage drives most structural failure. Reactive repairs increase cost, downtime, and risk—especially under climate stress.</p>
+          <p>Localized damage drives structural failure. Reactive repairs increase cost, downtime, and risk—especially under climate stress.</p>
         </div>
         <div class="card">
           <h3>What we deliver</h3>
@@ -506,6 +574,59 @@
           <h3>Collaboration-ready</h3>
           <p>
             We welcome partnerships for laboratory validation, pilot planning, and infrastructure-focused commercialization pathways.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Careers -->
+  <section id="careers">
+    <div class="wrap">
+      <div class="head">
+        <h2>Careers</h2>
+        <p>
+          We’re building decision-responsive materials for resilient infrastructure. Submit your application by email using the template below.
+        </p>
+      </div>
+
+      <div class="grid">
+        <div class="card">
+          <h3>Required attachments</h3>
+          <p>Please attach:</p>
+          <ul class="list">
+            <li><strong>CV/Resume (PDF)</strong></li>
+            <li><strong>Portfolio / GitHub / Google Scholar / Publications</strong> (links are fine)</li>
+          </ul>
+          <p class="micro" style="margin-top:12px;">
+            Note: Attachments cannot be enforced by the website link—your email app will prompt you to attach files manually.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Work authorization</h3>
+          <p>Include your status in the email:</p>
+          <ul class="list">
+            <li>US Citizen / Green Card / EAD / Visa type</li>
+            <li>If EAD/Visa: include <strong>expiration date</strong></li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>Apply (pre-filled email)</h3>
+          <p>Click below to open an email draft with questions already included.</p>
+
+          <div class="apply-row">
+            <a class="btn primary"
+               href="mailto:info@infrahealtech.com?subject=Career%20Application%20%E2%80%93%20%5BYour%20Name%5D%20%E2%80%93%20%5BRole%20Interest%5D&body=Hello%20InfraHeal%20Team%2C%0D%0A%0D%0AI%20would%20like%20to%20be%20considered%20for%20opportunities%20at%20InfraHeal%20Technologies.%0D%0A%0D%0APlease%20find%20my%20CV%2FResume%20attached%20(PDF).%0D%0A%0D%0A---%0D%0A1)%20Full%20Name%3A%20%0D%0A2)%20Role%20Interest%20(Materials%20%2F%20Testing%20%2F%20Data%20%26%20ML%20%2F%20Product%20%2F%20Other)%3A%20%0D%0A3)%20Top%203%20Skills%3A%20%0D%0A4)%20Relevant%20Tools%20(DMA%2FMTS%2FSEM%2FDSC%2FTGA%2FPython%2Fetc.)%3A%20%0D%0A5)%20Work%20Authorization%20Status%20(US%20Citizen%20%2F%20Green%20Card%20%2F%20EAD%20%2F%20Visa)%3A%20%0D%0A6)%20If%20EAD%2FVisa%2C%20Expiration%20Date%3A%20%0D%0A7)%20Location%20(City%2C%20State)%20%2B%20Relocation%2FTravel%20Preference%3A%20%0D%0A8)%20Start%20Date%20%2F%20Availability%3A%20%0D%0A9)%20Links%20(LinkedIn%20%2F%20GitHub%20%2F%20Portfolio%20%2F%20Scholar)%3A%20%0D%0A10)%20Anything%20else%20we%20should%20know%20(1%E2%80%932%20sentences)%3A%20%0D%0A---%0D%0A%0D%0AThank%20you%2C%0D%0A%5BYour%20Name%5D">
+              Apply via Email
+            </a>
+
+            <span class="micro">Or email: <a href="mailto:info@infrahealtech.com">info@infrahealtech.com</a></span>
+          </div>
+
+          <p style="margin-top:12px; color:var(--muted2);">
+            Please attach your CV (PDF) and include links to your portfolio/publications.
           </p>
         </div>
       </div>
