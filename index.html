@@ -5,292 +5,537 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>InfraHeal Technologies, Inc.</title>
   <meta name="description" content="InfraHeal Technologies develops stress-selective, self-healing composite materials for resilient U.S. infrastructure." />
+  <meta name="theme-color" content="#070A12" />
 
   <style>
     :root{
-      --bg:#0f172a;
-      --panel:#020617;
-      --text:#e5e7eb;
-      --muted:#94a3b8;
-      --link:#38bdf8;
-      --soft:#cbd5f5;
-      --chip:#1e293b;
-      --max:1100px;
+      --bg:#070A12;
+      --bg2:#0B1020;
+      --card:rgba(255,255,255,0.06);
+      --card2:rgba(255,255,255,0.08);
+      --border:rgba(255,255,255,0.12);
+      --text:#EAF0FF;
+      --muted:rgba(234,240,255,0.72);
+      --muted2:rgba(234,240,255,0.55);
+      --brand:#6EE7FF;
+      --brand2:#A78BFA;
+      --ok:#34D399;
+      --shadow: 0 20px 70px rgba(0,0,0,0.55);
+      --shadow2: 0 10px 35px rgba(0,0,0,0.45);
+      --r: 20px;
+      --max: 1120px;
     }
+
     *{ box-sizing:border-box; }
+    html{ scroll-behavior:smooth; }
     body{
-      font-family: Arial, Helvetica, sans-serif;
       margin:0;
-      background:var(--bg);
       color:var(--text);
+      background:
+        radial-gradient(900px 600px at 18% 10%, rgba(110,231,255,0.14), transparent 60%),
+        radial-gradient(900px 600px at 85% 15%, rgba(167,139,250,0.12), transparent 60%),
+        radial-gradient(1000px 700px at 50% 100%, rgba(52,211,153,0.08), transparent 60%),
+        linear-gradient(180deg, var(--bg), var(--bg2));
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, Helvetica, sans-serif;
       line-height:1.6;
     }
-    header{
-      background: linear-gradient(135deg, #020617, #0f172a);
-      padding:60px 20px 40px;
-      text-align:center;
-    }
-    header h1{ font-size:2.6rem; margin:0 0 10px; }
-    header p{ font-size:1.15rem; margin:0; color:var(--soft); }
+    a{ color:var(--brand); text-decoration:none; }
+    a:hover{ text-decoration:underline; }
+    .wrap{ max-width:var(--max); margin:0 auto; padding:0 20px; }
 
-    nav{
-      background:var(--panel);
-      padding:10px 20px;
-      position:sticky;
-      top:0;
-      z-index:10;
-      border-bottom:1px solid rgba(148,163,184,0.15);
+    /* Top bar */
+    .topbar{
+      position:sticky; top:0; z-index:50;
+      backdrop-filter: blur(14px);
+      background: rgba(7,10,18,0.55);
+      border-bottom:1px solid rgba(255,255,255,0.08);
     }
-    .navwrap{ max-width:var(--max); margin:0 auto; display:flex; flex-wrap:wrap; gap:14px; }
+    .topbar-inner{
+      display:flex; align-items:center; justify-content:space-between;
+      padding:12px 0; gap:12px;
+    }
+    .brandmark{ display:flex; align-items:center; gap:10px; }
+    .logo{
+      width:38px; height:38px; border-radius:14px;
+      background:
+        radial-gradient(14px 14px at 25% 30%, rgba(110,231,255,0.95), transparent 60%),
+        radial-gradient(18px 18px at 70% 70%, rgba(167,139,250,0.9), transparent 60%),
+        linear-gradient(135deg, rgba(255,255,255,0.10), rgba(255,255,255,0.02));
+      border: 1px solid rgba(255,255,255,0.14);
+      box-shadow: var(--shadow2);
+    }
+    .brandtext{ display:flex; flex-direction:column; line-height:1.05; }
+    .brandtext strong{ font-size:0.98rem; letter-spacing:0.2px; }
+    .brandtext span{ font-size:0.80rem; color:var(--muted2); }
+
+    nav{ display:flex; gap: 10px; flex-wrap:wrap; justify-content:flex-end; }
     nav a{
-      color:var(--soft);
+      color: var(--muted);
+      font-weight: 650;
+      font-size: 0.92rem;
+      padding: 8px 10px;
+      border-radius: 12px;
+      border: 1px solid transparent;
+    }
+    nav a:hover{
+      color: var(--text);
+      border-color: rgba(255,255,255,0.10);
+      background: rgba(255,255,255,0.05);
       text-decoration:none;
-      font-weight:700;
-      letter-spacing:0.2px;
-      font-size:0.95rem;
-    }
-    nav a:hover{ color:var(--link); }
-
-    section{ padding:56px 20px; }
-    .wrap{ max-width:var(--max); margin:0 auto; }
-    h2{ color:var(--link); margin:0 0 14px; font-size:1.7rem; }
-    .card{
-      background:var(--panel);
-      padding:24px;
-      border-radius:14px;
-      margin:0 0 22px;
-      border:1px solid rgba(148,163,184,0.12);
-      box-shadow: 0 10px 30px rgba(0,0,0,0.18);
-    }
-    ul{ margin:10px 0 0 18px; }
-    .tag{
-      display:inline-block;
-      background:var(--chip);
-      padding:6px 12px;
-      border-radius:999px;
-      margin:6px 8px 0 0;
-      font-size:0.88rem;
-      color:var(--text);
-      border:1px solid rgba(148,163,184,0.12);
     }
 
-    /* hero images */
-    .hero-images{
-      margin-top:26px;
+    /* Hero */
+    header{ padding: 62px 0 28px; }
+    .hero{
+      display:grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 22px;
+      align-items: stretch;
+    }
+    .hero-left{
+      border:1px solid rgba(255,255,255,0.10);
+      background: linear-gradient(135deg, rgba(255,255,255,0.07), rgba(255,255,255,0.04));
+      border-radius: calc(var(--r) + 8px);
+      box-shadow: var(--shadow);
+      padding: 30px;
+      position: relative;
+      overflow:hidden;
+    }
+    .hero-left:before{
+      content:"";
+      position:absolute; inset:-1px;
+      background:
+        radial-gradient(520px 240px at 14% 16%, rgba(110,231,255,0.12), transparent 60%),
+        radial-gradient(520px 260px at 86% 32%, rgba(167,139,250,0.11), transparent 62%),
+        linear-gradient(180deg, transparent, rgba(0,0,0,0.22));
+      pointer-events:none;
+    }
+    .hero-left > *{ position: relative; z-index: 1; }
+
+    .pill{
+      display:inline-flex; align-items:center; gap:10px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.10);
+      color: var(--muted);
+      font-weight: 650;
+      font-size: 0.90rem;
+      margin-bottom: 16px;
+    }
+    .dot{
+      width:10px;height:10px;border-radius:99px;
+      background: linear-gradient(135deg, var(--brand), var(--brand2));
+      box-shadow: 0 0 0 6px rgba(110,231,255,0.08);
+    }
+    h1{
+      margin: 0 0 12px;
+      font-size: 2.55rem;
+      letter-spacing: -0.6px;
+      line-height: 1.10;
+    }
+    .sub{
+      margin: 0 0 18px;
+      color: var(--muted);
+      font-size: 1.06rem;
+      max-width: 60ch;
+    }
+    .cta{
+      display:flex; flex-wrap:wrap; gap:12px; align-items:center;
+      margin-top: 18px;
+    }
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center; gap:10px;
+      padding: 12px 14px;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,0.14);
+      font-weight: 750;
+      font-size: 0.95rem;
+      text-decoration:none;
+      box-shadow: var(--shadow2);
+      transition: transform .12s ease, background .12s ease, border-color .12s ease;
+      user-select:none;
+    }
+    .btn:hover{ transform: translateY(-1px); text-decoration:none; }
+    .btn.primary{
+      background: linear-gradient(135deg, rgba(110,231,255,0.20), rgba(167,139,250,0.18));
+      color: var(--text);
+    }
+    .btn.ghost{
+      background: rgba(255,255,255,0.06);
+      color: var(--text);
+    }
+    .micro{
+      color: var(--muted2);
+      font-weight: 600;
+      font-size: 0.90rem;
+    }
+
+    .stats{
+      display:grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 12px;
+      margin-top: 18px;
+    }
+    .stat{
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.10);
+      border-radius: 16px;
+      padding: 12px 12px;
+    }
+    .stat strong{ display:block; font-size: 1.05rem; letter-spacing:-0.2px; }
+    .stat span{ color: var(--muted2); font-size: 0.88rem; }
+
+    .hero-right{
+      display:grid;
+      grid-template-rows: 1fr 1fr;
+      gap: 14px;
+    }
+    .media{
+      border-radius: calc(var(--r) + 8px);
+      overflow:hidden;
+      border: 1px solid rgba(255,255,255,0.12);
+      background: rgba(255,255,255,0.04);
+      box-shadow: var(--shadow2);
+      position: relative;
+      min-height: 220px;
+    }
+    .media img{
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display:block;
+      filter: contrast(1.02) saturate(1.05);
+      transform: scale(1.02);
+    }
+    .cap{
+      position:absolute;
+      left: 12px; right: 12px; bottom: 12px;
+      padding: 10px 12px;
+      border-radius: 14px;
+      background: rgba(7,10,18,0.60);
+      border: 1px solid rgba(255,255,255,0.14);
+      color: var(--muted);
+      font-size: 0.90rem;
+      backdrop-filter: blur(10px);
+    }
+
+    /* Sections */
+    section{ padding: 44px 0; }
+    .head{
       display:flex;
-      justify-content:center;
-      gap:20px;
-      flex-wrap:wrap;
+      align-items:flex-end;
+      justify-content:space-between;
+      gap: 12px;
+      margin-bottom: 16px;
     }
-    figure{
+    .head h2{
       margin:0;
-      max-width:300px;
-      width:100%;
-      text-align:left;
+      font-size: 1.7rem;
+      letter-spacing: -0.2px;
     }
-    figure img{
-      width:100%;
-      border-radius:12px;
-      border:1px solid rgba(148,163,184,0.12);
-      display:block;
+    .head p{
+      margin:0;
+      color: var(--muted2);
+      max-width: 70ch;
+      font-size: 0.95rem;
     }
-    figcaption{
-      font-size:0.85rem;
-      color:var(--muted);
-      margin-top:8px;
-      line-height:1.35;
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
     }
-
-    /* optional image row inside sections */
-    .imgrow{
-      display:flex;
-      gap:16px;
-      flex-wrap:wrap;
-      margin-top:14px;
+    .card{
+      border: 1px solid rgba(255,255,255,0.10);
+      background: rgba(255,255,255,0.05);
+      border-radius: var(--r);
+      padding: 18px;
+      box-shadow: var(--shadow2);
     }
-    .imgbox{
-      flex:1 1 260px;
-      background:rgba(2,6,23,0.35);
-      border:1px dashed rgba(148,163,184,0.28);
-      border-radius:12px;
-      padding:12px;
+    .card h3{
+      margin: 0 0 8px;
+      font-size: 1.05rem;
+      letter-spacing: -0.2px;
     }
-    .imgbox img{
-      width:100%;
-      border-radius:10px;
-      display:block;
-      border:1px solid rgba(148,163,184,0.12);
-    }
-    .imgbox .cap{
-      margin-top:8px;
-      font-size:0.85rem;
-      color:var(--muted);
+    .card p{
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.95rem;
     }
 
-    a{ color:var(--link); }
+    .split{
+      display:grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 16px;
+      align-items: start;
+    }
+    .list{
+      margin: 10px 0 0 18px;
+      color: var(--muted);
+    }
+    .list li{ margin: 6px 0; }
+
+    .badge{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.10);
+      color: var(--muted);
+      font-weight: 650;
+      font-size: 0.90rem;
+    }
+    .check{
+      width:18px;height:18px;border-radius:999px;
+      background: rgba(52,211,153,0.15);
+      border: 1px solid rgba(52,211,153,0.25);
+      display:inline-flex; align-items:center; justify-content:center;
+      color: var(--ok);
+      font-weight: 900;
+      font-size: 0.9rem;
+      line-height: 1;
+    }
+
     footer{
-      background:var(--panel);
-      text-align:center;
-      padding:26px 20px;
-      color:var(--muted);
-      border-top:1px solid rgba(148,163,184,0.15);
+      padding: 34px 0;
+      border-top: 1px solid rgba(255,255,255,0.10);
+      color: var(--muted2);
+    }
+    .foot{
+      display:flex; justify-content:space-between; gap: 12px;
+      flex-wrap:wrap; align-items:center;
+    }
+
+    /* Responsive */
+    @media (max-width: 980px){
+      .hero{ grid-template-columns: 1fr; }
+      .hero-right{ grid-template-columns: 1fr 1fr; grid-template-rows: auto; }
+      .stats{ grid-template-columns: 1fr 1fr; }
+      .grid{ grid-template-columns: 1fr; }
+      .split{ grid-template-columns: 1fr; }
+    }
+    @media (max-width: 560px){
+      h1{ font-size: 2.10rem; }
+      .hero-right{ grid-template-columns: 1fr; }
+      .stats{ grid-template-columns: 1fr; }
+      nav{ justify-content:flex-start; }
     }
   </style>
 </head>
 
 <body>
 
-<header>
-  <h1>InfraHeal Technologies, Inc.</h1>
-  <p>Decision-Responsive Materials for Resilient Infrastructure</p>
-
-  <!-- HERO IMAGES (your two photos) -->
-  <div class="hero-images">
-    <figure>
-      <img src="images/composite_sample.jpg" alt="Self-healing composite sample under inspection" />
-      <figcaption>Representative composite sample informing InfraHeal’s self-healing materials platform.</figcaption>
-    </figure>
-
-    <figure>
-      <img src="images/lab_testing.jpg" alt="Materials testing in laboratory environment" />
-      <figcaption>Experimental validation using advanced materials testing equipment.</figcaption>
-    </figure>
-  </div>
-</header>
-
-<nav>
-  <div class="navwrap">
-    <a href="#problem">Problem</a>
-    <a href="#solution">Solution</a>
-    <a href="#technology">Technology</a>
-    <a href="#research">Research</a>
-    <a href="#team">Team</a>
-    <a href="#contact">Contact</a>
-  </div>
-</nav>
-
-<section id="problem">
-  <div class="wrap">
-    <h2>The Problem</h2>
-    <div class="card">
-      <p>
-        U.S. bridges, buildings, and public infrastructure fail primarily due to
-        <strong>localized stress concentrations</strong> that initiate cracks long before visible damage occurs.
-        Inspection and repair methods are reactive, labor-intensive, and increasingly unsustainable under
-        climate-driven loading and workforce shortages.
-      </p>
-    </div>
-  </div>
-</section>
-
-<section id="solution">
-  <div class="wrap">
-    <h2>Our Solution</h2>
-    <div class="card">
-      <p>
-        InfraHeal develops <strong>stress-selective, self-healing composite materials</strong> that autonomously respond
-        only where failure risk is highest. By embedding decision-making capability directly into materials,
-        we extend service life and reduce maintenance costs.
-      </p>
-    </div>
-  </div>
-</section>
-
-<section id="technology">
-  <div class="wrap">
-    <h2>Core Technology</h2>
-    <div class="card">
-      <ul>
-        <li><strong>Shape Memory Polymer (SMP) matrices</strong> for controlled crack closure</li>
-        <li><strong>Fiber-reinforced composites</strong> for stress localization (strain/resistance response)</li>
-        <li><strong>Localized activation</strong> (thermal or magnetic) confined to critical regions</li>
-        <li><strong>Decision-support analytics</strong> using Python-based visualization</li>
-      </ul>
-
-      <div style="margin-top:10px;">
-        <span class="tag">Self-Healing</span>
-        <span class="tag">Stress-Selective</span>
-        <span class="tag">Infrastructure</span>
-        <span class="tag">Smart Materials</span>
+  <!-- Top Navigation -->
+  <div class="topbar">
+    <div class="wrap topbar-inner">
+      <div class="brandmark">
+        <div class="logo" aria-hidden="true"></div>
+        <div class="brandtext">
+          <strong>InfraHeal Technologies</strong>
+          <span>Decision-responsive infrastructure materials</span>
+        </div>
       </div>
 
-      <!-- OPTIONAL: add more images later by putting files in /images and referencing them here -->
-      <div class="imgrow">
-        <div class="imgbox">
-          <!-- Replace schematic_v1.png with your schematic filename when you add it -->
-          <img src="images/schematic_v1.png" alt="Platform schematic (optional)" />
-          <div class="cap">Optional: technology schematic (add your file to <code>/images</code>).</div>
+      <nav>
+        <a href="#about">About</a>
+        <a href="#technology">Technology</a>
+        <a href="#foundation">Foundation</a>
+        <a href="#team">Team</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </div>
+
+  <!-- Hero -->
+  <header>
+    <div class="wrap hero">
+      <div class="hero-left">
+        <div class="pill"><span class="dot"></span> Decision-Responsive Materials for Resilient Infrastructure</div>
+        <h1>Materials that heal only where failure begins.</h1>
+        <p class="sub">
+          InfraHeal Technologies develops <strong>stress-selective, self-healing composite materials</strong> for bridges and buildings.
+          Our platform targets localized stress concentrations—where cracks start—so healing effort is used efficiently and service life is extended.
+        </p>
+
+        <div class="cta">
+          <a class="btn primary" href="#contact">Get in touch</a>
+          <a class="btn ghost" href="#technology">Explore our approach</a>
+          <span class="micro">Email: <a href="mailto:info@infrahealtech.com">info@infrahealtech.com</a></span>
         </div>
-        <div class="imgbox">
-          <!-- Replace crack_before_after.png with your file when you add it -->
-          <img src="images/crack_before_after.png" alt="Crack before/after (optional)" />
-          <div class="cap">Optional: representative crack closure image (add your file to <code>/images</code>).</div>
+
+        <div class="stats">
+          <div class="stat">
+            <strong>Infrastructure-first</strong>
+            <span>Designed for bridges & building components</span>
+          </div>
+          <div class="stat">
+            <strong>Selective healing</strong>
+            <span>Responds where stress is highest</span>
+          </div>
+          <div class="stat">
+            <strong>NSF-ready</strong>
+            <span>Phase I feasibility focus</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-right">
+        <div class="media">
+          <img src="images/composite_sample.jpg" alt="Composite sample under inspection" />
+          <div class="cap">Representative composite sample informing InfraHeal’s materials platform.</div>
+        </div>
+        <div class="media">
+          <img src="images/lab_testing.jpg" alt="Materials testing in laboratory environment" />
+          <div class="cap">Experimental validation using advanced materials testing equipment.</div>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </header>
 
-<section id="research">
-  <div class="wrap">
-    <h2>Research Foundation</h2>
-    <div class="card">
-      <p>
-        InfraHeal’s platform is grounded in experimentally validated research, including peer-reviewed publications
-        on self-healing composites, shape-memory polymers, and multifunctional material systems.
-      </p>
-      <ul>
-        <li>Self-Healing of Macroscopic Cracks in Concrete by Cellulose Fiber-Carried Microbes (2024)</li>
-        <li>Efficacy of Cellulose Fiber as Bacteria Carrier for Self-Healing Concrete</li>
-        <li>Development of Multifunctional Wood Composites with Integrated Phase Change Materials</li>
-        <li>Effect of Two-Way Shape Memory on Healing of Polymer Composites</li>
-      </ul>
+  <!-- About -->
+  <section id="about">
+    <div class="wrap">
+      <div class="head">
+        <h2>About</h2>
+        <p>Infrastructure fails at small, high-stress regions long before visible damage appears. InfraHeal embeds response into the material itself.</p>
+      </div>
 
-      <p style="margin-top:14px; color:var(--muted);">
-        These works inform the material design principles underlying InfraHeal’s stress-selective self-healing platform.
-        No intellectual property conflicts exist.
-      </p>
+      <div class="grid">
+        <div class="card">
+          <h3>Why it matters</h3>
+          <p>Localized damage drives most structural failure. Reactive repairs increase cost, downtime, and risk—especially under climate stress.</p>
+        </div>
+        <div class="card">
+          <h3>What we deliver</h3>
+          <p>A composite platform that senses stress concentration and activates healing where it matters—improving durability without “heal everywhere” waste.</p>
+        </div>
+        <div class="card">
+          <h3>How we build trust</h3>
+          <p>Experiment-first development with clear feasibility milestones, validated using standard materials characterization and mechanical testing.</p>
+        </div>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<section id="team">
-  <div class="wrap">
-    <h2>Leadership & Expertise</h2>
-    <div class="card">
-      <p>
-        <strong>Emmanuel Igbokwe, M.Sc., M.Eng.</strong><br />
-        Founder & CEO | Principal Investigator
-      </p>
-      <p>
-        Materials and infrastructure engineer with expertise in self-healing composites, shape-memory polymers,
-        advanced materials characterization (DMA, DSC, TGA, SEM, MTS), and applied data analytics.
-      </p>
+  <!-- Technology -->
+  <section id="technology">
+    <div class="wrap">
+      <div class="head">
+        <h2>Technology</h2>
+        <p>Stress localization + targeted actuation. A practical path from lab validation to deployable infrastructure materials.</p>
+      </div>
 
-      <p style="margin-top:18px;">
-        <strong>Machine Learning & Neural Systems (Advisory)</strong><br />
-        Applied to stress, strain, and damage evolution data for predictive maintenance and future adaptive material behavior.
-        Machine learning methods are applied at the <strong>decision-support layer</strong>, complementing the core materials innovation.
-      </p>
+      <div class="split">
+        <div class="card">
+          <h3>Stress-selective self-healing composites</h3>
+          <p>
+            InfraHeal’s platform integrates shape-memory polymer (SMP) actuation with fiber-reinforced mechanics to enable controlled crack closure
+            at high-risk zones. The result is efficient use of healing capacity and improved service life.
+          </p>
+          <ul class="list">
+            <li>Stress localization through fiber-enabled response</li>
+            <li>Localized activation (thermal or magnetic) for targeted healing</li>
+            <li>Feasibility validated at coupon-level in Phase I scope</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>What makes it different</h3>
+          <div style="display:flex; flex-direction:column; gap:10px; margin-top:8px;">
+            <div class="badge"><span class="check">✓</span> Healing is selective, not global</div>
+            <div class="badge"><span class="check">✓</span> Designed for infrastructure deployment pathways</div>
+            <div class="badge"><span class="check">✓</span> Clear milestones, measured outcomes</div>
+            <div class="badge"><span class="check">✓</span> Scalable intelligence via decision-support analytics</div>
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<section id="contact">
-  <div class="wrap">
-    <h2>Contact</h2>
-    <div class="card">
-      <p>Email: <a href="mailto:info@infrahealtech.com">info@infrahealtech.com</a></p>
-      <p style="color:var(--muted); margin-top:10px;">
-        InfraHeal Technologies is preparing for NSF SBIR Phase I submission.
-      </p>
+  <!-- Foundation -->
+  <section id="foundation">
+    <div class="wrap">
+      <div class="head">
+        <h2>Foundation</h2>
+        <p>Grounded in peer-reviewed research in self-healing and multifunctional material systems.</p>
+      </div>
+
+      <div class="card">
+        <ul class="list" style="margin-top:0;">
+          <li><strong>Self-Healing of Macroscopic Cracks in Concrete by Cellulose Fiber-Carried Microbes</strong> (2024)</li>
+          <li>Efficacy of Cellulose Fiber as Bacteria Carrier for Self-Healing Concrete</li>
+          <li>Development of Multifunctional Wood Composites with Integrated Phase Change Materials</li>
+          <li>Effect of Two-Way Shape Memory on Healing of Polymer Composites</li>
+        </ul>
+        <p style="margin:12px 0 0; color:var(--muted2);">
+          These works inform the design principles underlying InfraHeal’s stress-selective self-healing platform. No intellectual property conflicts exist.
+        </p>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<footer>
-  <p>&copy; 2026 InfraHeal Technologies, Inc. All rights reserved.</p>
-</footer>
+  <!-- Team -->
+  <section id="team">
+    <div class="wrap">
+      <div class="head">
+        <h2>Team</h2>
+        <p>Deep materials expertise with practical validation capability and data-driven methods.</p>
+      </div>
+
+      <div class="grid">
+        <div class="card">
+          <h3>Founder & Principal Investigator</h3>
+          <p><strong>Emmanuel Igbokwe, M.Sc., M.Eng.</strong></p>
+          <p style="color:var(--muted); margin-top:8px;">
+            Materials and infrastructure engineer with expertise in self-healing composites, shape-memory polymers,
+            fiber-reinforced structural mechanics, and advanced characterization (DMA, DSC, TGA, SEM, MTS).
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Machine Learning & Neural Systems (Advisory)</h3>
+          <p>
+            Expertise supporting pattern recognition in stress/damage evolution data, predictive maintenance modeling,
+            and learning-based optimization of decision thresholds—applied as a decision-support layer.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Collaboration-ready</h3>
+          <p>
+            We welcome partnerships for laboratory validation, pilot planning, and infrastructure-focused commercialization pathways.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact">
+    <div class="wrap">
+      <div class="head">
+        <h2>Contact</h2>
+        <p>For collaborations, NSF-related inquiries, or future pilot deployments.</p>
+      </div>
+
+      <div class="card" style="display:flex; justify-content:space-between; flex-wrap:wrap; gap:12px; align-items:center;">
+        <div>
+          <div style="font-weight:800; font-size:1.05rem;">InfraHeal Technologies, Inc.</div>
+          <div style="color:var(--muted); margin-top:4px;">Email: <a href="mailto:info@infrahealtech.com">info@infrahealtech.com</a></div>
+        </div>
+        <a class="btn primary" href="mailto:info@infrahealtech.com">Email us</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap foot">
+      <div>© 2026 InfraHeal Technologies, Inc.</div>
+      <div>Decision-Responsive Materials for Resilient Infrastructure</div>
+    </div>
+  </footer>
 
 </body>
 </html>
